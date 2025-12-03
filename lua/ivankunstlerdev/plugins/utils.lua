@@ -1,5 +1,11 @@
 return {
 	{
+		"nvim-mini/mini.move",
+		version = "*",
+		config = true,
+	},
+
+	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
