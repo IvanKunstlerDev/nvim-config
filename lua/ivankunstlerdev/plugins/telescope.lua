@@ -27,8 +27,9 @@ return {
 		},
 	},
 	config = function(_, opts)
-		require("telescope").setup(opts)
-		pcall(require("telescope").load_extension, "ui-select")
-		pcall(require("telescope").load_extension, "fzf")
+		local telescope = require("telescope")
+		telescope.setup(opts)
+		pcall(telescope.load_extension, "ui-select")
+		pcall(telescope.load_extension, "fzf")
 	end,
 }

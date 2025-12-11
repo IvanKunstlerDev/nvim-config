@@ -1,9 +1,9 @@
 return {
-	{
-		"nvim-mini/mini.move",
-		version = "*",
-		config = true,
-	},
+	-- {
+	-- 	"nvim-mini/mini.move",
+	-- 	version = "*",
+	-- 	config = true,
+	-- },
 
 	{
 		"folke/todo-comments.nvim",
@@ -53,5 +53,50 @@ return {
 			map("n", "<C-M-k>", "<cmd>lua require('tmux').resize_top()<cr>")
 			map("n", "<C-M-l>", "<cmd>lua require('tmux').resize_right()<cr>")
 		end,
+	},
+
+	{
+		"2kabhishek/nerdy.nvim",
+		cmd = "Nerdy",
+		opts = {
+			max_recents = 30, -- Configure recent icons limit
+			add_default_keybindings = true, -- Add default keybindings
+			copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
+			copy_register = "+", -- Register to use for copying (if `copy_to_clipboard` is true)
+		},
+	},
+
+	{
+		"norcalli/nvim-colorizer.lua",
+		ft = {
+			"css",
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"svg",
+		},
+		opts = {
+			"css",
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"svg",
+		},
+		config = true,
+	},
+
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = "markdown",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {
+			completions = { lsp = { enabled = true } },
+		},
 	},
 }

@@ -23,14 +23,6 @@ opt.inccommand = "split"
 opt.cursorline = true
 opt.scrolloff = 10
 opt.confirm = true
-opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
-}
 opt.linebreak = true
 opt.expandtab = true
 opt.tabstop = 4
@@ -40,3 +32,16 @@ opt.smartindent = true
 opt.smoothscroll = true
 opt.wrap = true
 opt.termguicolors = true
+
+opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}
+opt.foldlevel = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldtext = ""

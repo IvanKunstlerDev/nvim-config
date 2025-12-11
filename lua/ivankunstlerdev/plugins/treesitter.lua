@@ -6,6 +6,10 @@ return {
 		build = ":TSUpdate",
 		main = "nvim-treesitter.configs",
 		opts = {
+			highlight = { enable = true },
+			incremental_selection = { enable = true },
+			textobjects = { enable = true },
+			indent = { enable = true },
 			ensure_installed = {
 				"c",
 				"lua",
@@ -20,10 +24,6 @@ return {
 				"bash",
 				"regex",
 			},
-			highlight = { enable = true },
-			incremental_selection = { enable = true },
-			textobjects = { enable = true },
-			indent = { enable = true },
 		},
 	},
 }

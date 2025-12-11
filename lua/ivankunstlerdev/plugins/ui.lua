@@ -13,6 +13,7 @@ return {
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
+			"nvim-telescope/telescope.nvim",
 		},
 		event = "VeryLazy",
 		opts = {
@@ -28,7 +29,11 @@ return {
 				long_message_to_split = true,
 			},
 		},
-		config = true,
+		config = function(_, opts)
+			require("noice").setup(opts)
+			local map = vim.keymap.set
+			map("n", "<leader>fN", "<CMD>Telescope notify<CR>", { desc = "Telescope notifications" })
+		end,
 	},
 
 	{
