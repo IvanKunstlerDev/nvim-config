@@ -48,6 +48,12 @@ map("", "<leader>fr", function()
 	vim.cmd.bdelete(old_name)
 end, { desc = "Rename file" })
 
+-- Find config
+map("n", "<leader>fc", function()
+	local config_dir = vim.fn.expand("~/.config/nvim")
+	require("telescope.builtin").find_files({ cwd = config_dir })
+end, { desc = "Find config" })
+
 -- Find notes
 map("n", "<leader>ns", function()
 	local notes_dir = vim.fn.expand("~/.notes")
@@ -55,7 +61,7 @@ map("n", "<leader>ns", function()
 		vim.fn.mkdir(notes_dir, "p")
 	end
 	require("telescope.builtin").find_files({ cwd = notes_dir })
-end, { desc = "Telescope notes" })
+end, { desc = "Find notes" })
 -- Create notes
 map("n", "<leader>nn", function()
 	local notes_dir = vim.fn.expand("~/.notes")
@@ -69,3 +75,24 @@ map("n", "<leader>nn", function()
 	local path = notes_dir .. "/" .. note_name
 	vim.cmd.edit(path)
 end, { desc = "New note" })
+
+-- Lsp
+map("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+map("n", "gr", vim.lsp.buf.references, { desc = "References", nowait = true })
+map("n", "gI", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+map("n", "gy", vim.lsp.buf.type_definition, { desc = "Goto T[y]pe Definition" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+map("n", "K", function()
+	return vim.lsp.buf.hover()
+end, { desc = "Hover" })
+map("n", "gK", function()
+	return vim.lsp.buf.signature_help()
+end, { desc = "Signature Help" })
+map("i", "<c-k>", function()
+	return vim.lsp.buf.signature_help()
+end, { desc = "Signature Help" })
+map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+map({ "n", "x" }, "<leader>cA", function()
+	vim.lsp.buf.code_action({ context = { only = { "source" }, diagnostics = {} } })
+end, { desc = "Source Action" })
