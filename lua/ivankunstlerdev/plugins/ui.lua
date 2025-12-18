@@ -43,7 +43,7 @@ return {
 			local theme = require("gruvbox-material.lualine").theme("medium")
 
 			require("lualine").setup({
-				options = { theme = theme },
+				options = { theme = theme, globalstatus = true },
 			})
 		end,
 	},
@@ -52,5 +52,26 @@ return {
 		"karb94/neoscroll.nvim",
 		enabled = false,
 		opts = {},
+	},
+
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		opts = {
+			options = {
+				indicator = { style = "none" },
+				diagnostics = "nvim_lsp",
+				diagnostics_update_on_event = true,
+				offsets = {
+					{
+						filetype = "NvimTree",
+						separator = true,
+						text = "File Explorer",
+					},
+				},
+			},
+		},
+		config = true,
 	},
 }
