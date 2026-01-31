@@ -1,4 +1,4 @@
-local opt = vim.opt
+local opt = vim.o
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -23,7 +23,7 @@ opt.signcolumn = "yes"
 opt.updatetime = 250
 opt.timeoutlen = 300
 opt.inccommand = "split"
-opt.cursorline = true
+opt.cursorline = false
 opt.scrolloff = 8
 opt.confirm = true
 opt.linebreak = true
@@ -36,7 +36,7 @@ opt.smoothscroll = true
 opt.wrap = true
 opt.termguicolors = true
 
-opt.fillchars = {
+vim.opt.fillchars = {
 	foldopen = "",
 	foldclose = "",
 	fold = " ",

@@ -12,6 +12,9 @@ map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+map("v", "<Tab>", ">gv", { desc = "Adds indent to selected text" })
+map("v", "<S-Tab>", "<gv", { desc = "Adds indent to selected text" })
+
 -- Move lines
 map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
@@ -21,7 +24,15 @@ map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc 
 map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- Delete buffer
-map("n", "<Leader>bd", "<CMD>bdelete<CR>", { desc = "Close current buffer" })
+map("n", "<leader>bd", function()
+	local buffers = #vim.fn.getbufinfo({ buflisted = 1 })
+	if buffers > 1 then
+		vim.cmd("bp | bd #")
+	else
+		vim.cmd("enew | bd #")
+	end
+end, { desc = "Close current buffer" })
+
 -- Previous buffer
 map("n", "<S-h>", "<CMD>bprevious<CR>")
 -- Next buffer

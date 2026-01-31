@@ -1,6 +1,7 @@
 return {
 	{
-		"sainnhe/gruvbox-material",
+		"f4z3r/gruvbox-material.nvim",
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		opts = {
@@ -9,9 +10,18 @@ return {
 				italics = true,
 			},
 		},
+		-- config = function(_, opts)
+		-- 	require("gruvbox-material").setup(opts)
+		-- 	vim.cmd.colorscheme("gruvbox-material")
+		-- end,
+	},
+	{
+		"projekt0n/github-nvim-theme",
+		enabled = true,
+		lazy = false,
 		config = function(_, opts)
-			require("gruvbox-material").setup(opts)
-			vim.cmd.colorscheme("gruvbox-material")
+			require("github-theme").setup(opts)
+			vim.cmd("colorscheme github_dark_default")
 		end,
 	},
 }

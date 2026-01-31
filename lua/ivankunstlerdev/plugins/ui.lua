@@ -38,12 +38,19 @@ return {
 
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons", "f4z3r/gruvbox-material.nvim" },
+		enabled = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"f4z3r/gruvbox-material.nvim",
+		},
 		config = function()
 			local theme = require("gruvbox-material.lualine").theme("medium")
 
 			require("lualine").setup({
-				options = { theme = theme, globalstatus = true },
+				options = {
+					theme = theme,
+					globalstatus = true,
+				},
 			})
 		end,
 	},
