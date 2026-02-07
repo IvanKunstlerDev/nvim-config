@@ -85,5 +85,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		-- Blink
 		hl(0, "BlinkCmpMenuBorder", { bg = nf.bg, fg = nf.bg })
 		hl(0, "BlinkCmpMenuSelection", { bg = "#212327", fg = nf.fg })
+
+		-- Noice
+		hl(0, "NoiceCmdlinePopup", { link = "NormalFloat" })
+		hl(0, "NoiceCmdlinePopupBorder", { bg = nf.bg, fg = nf.bg })
 	end,
 })
