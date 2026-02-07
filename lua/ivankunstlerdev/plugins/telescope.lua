@@ -20,6 +20,31 @@ return {
 		{ "<leader>fh", "<CMD>Telescope help_tags<CR>", { desc = "Telescope help tags" } },
 	},
 	opts = {
+		defaults = {
+			prompt_title = false,
+			results_title = false,
+			preview_title = false,
+			border = {},
+			borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+			prompt_prefix = " 󰍉  ",
+			selection_caret = "  ",
+			entry_prefix = "  ",
+			sorting_strategy = "ascending",
+			layout_strategy = "horizontal",
+			layout_config = {
+				horizontal = {
+					prompt_position = "top",
+					preview_width = 0.55,
+					results_width = 0.8,
+				},
+				vertical = {
+					mirror = false,
+				},
+				width = 0.87,
+				height = 0.80,
+				preview_cutoff = 120,
+			},
+		},
 		extensions = {
 			["ui-select"] = {
 				require("telescope.themes").get_dropdown(),

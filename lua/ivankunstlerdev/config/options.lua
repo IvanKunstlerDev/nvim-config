@@ -8,6 +8,9 @@ vim.g.maplocalleader = " "
 
 opt.number = true
 opt.relativenumber = true
+opt.signcolumn = "yes:1"
+opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%s"
+opt.numberwidth = 3
 
 opt.mouse = "a"
 opt.showmode = false
@@ -19,7 +22,6 @@ end)
 opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
-opt.signcolumn = "yes"
 opt.updatetime = 250
 opt.timeoutlen = 300
 opt.inccommand = "split"

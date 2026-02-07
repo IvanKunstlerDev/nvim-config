@@ -63,3 +63,27 @@ vim.api.nvim_create_autocmd("VimLeave", {
 -- 		require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
 -- 	end,
 -- })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		local hl = vim.api.nvim_set_hl
+		local nf = vim.api.nvim_get_hl(0, { name = "NormalFloat", link = false })
+
+		-- Cursor
+		vim.cmd("highlight CursorLine cterm=None ctermbg=DarkGray guibg=#212327")
+
+		-- Telescope
+		hl(0, "TelescopeNormal", { link = "NormalFloat" })
+		hl(0, "TelescopePromptNormal", { link = "NormalFloat" })
+		hl(0, "TelescopeResultsNormal", { link = "NormalFloat" })
+		hl(0, "TelescopePreviewNormal", { link = "NormalFloat" })
+		hl(0, "TelescopeBorder", { bg = nf.bg, fg = nf.bg })
+		hl(0, "TelescopePromptBorder", { bg = nf.bg, fg = nf.bg })
+		hl(0, "TelescopeResultsBorder", { bg = nf.bg, fg = nf.bg })
+		hl(0, "TelescopePreviewBorder", { bg = nf.bg, fg = nf.bg })
+
+		-- Blink
+		hl(0, "BlinkCmpMenuBorder", { bg = nf.bg, fg = nf.bg })
+		hl(0, "BlinkCmpMenuSelection", { bg = "#212327", fg = nf.fg })
+	end,
+})
