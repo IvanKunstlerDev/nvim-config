@@ -22,6 +22,7 @@ return {
 		config = function(_, opts)
 			require("github-theme").setup(opts)
 			vim.cmd("colorscheme github_dark_default")
+			vim.api.nvim_set_hl(0, "CursorLine", { bg = "#21262d" })
 		end,
 	},
 }

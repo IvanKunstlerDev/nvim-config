@@ -69,9 +69,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		local hl = vim.api.nvim_set_hl
 		local nf = vim.api.nvim_get_hl(0, { name = "NormalFloat", link = false })
 
-		-- Cursor
-		vim.cmd("highlight CursorLine cterm=None ctermbg=DarkGray guibg=#212327")
-
 		-- Telescope
 		hl(0, "TelescopeNormal", { link = "NormalFloat" })
 		hl(0, "TelescopePromptNormal", { link = "NormalFloat" })
@@ -84,7 +81,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 		-- Blink
 		hl(0, "BlinkCmpMenuBorder", { bg = nf.bg, fg = nf.bg })
-		hl(0, "BlinkCmpMenuSelection", { bg = "#212327", fg = nf.fg })
 
 		-- Noice
 		hl(0, "NoiceCmdlinePopup", { link = "NormalFloat" })
