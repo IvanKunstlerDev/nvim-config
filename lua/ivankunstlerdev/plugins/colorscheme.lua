@@ -22,6 +22,7 @@ return {
 		config = function(_, opts)
 			require("github-theme").setup(opts)
 			vim.cmd("colorscheme github_dark_default")
+			vim.cmd("highlight CursorLine cterm=None ctermbg=DarkGray guibg=#212327")
 		end,
 	},
 }
