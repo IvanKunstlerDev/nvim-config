@@ -9,6 +9,9 @@ return {
 			keymaps = {
 				["q"] = { "actions.close", mode = "n" },
 			},
+			win_options = {
+				signcolumn = "yes",
+			},
 			view_options = {
 				show_hidden = true,
 				is_always_hidden = function(name)
