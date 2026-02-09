@@ -87,3 +87,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		hl(0, "NoiceCmdlinePopupBorder", { bg = nf.bg, fg = nf.bg })
 	end,
 })
+
+-- Show/hide diagnostics
+vim.api.nvim_create_autocmd("InsertEnter", {
+	callback = function()
+		vim.diagnostic.hide()
+	end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+	callback = function()
+		vim.diagnostic.show()
+	end,
+})
