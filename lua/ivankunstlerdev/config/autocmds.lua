@@ -85,6 +85,9 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		-- Noice
 		hl(0, "NoiceCmdlinePopup", { link = "NormalFloat" })
 		hl(0, "NoiceCmdlinePopupBorder", { bg = nf.bg, fg = nf.bg })
+
+		-- Match brackets
+		vim.api.nvim_set_hl(0, "MatchParen", { underline = false, bold = true, fg = "None", bg = "None" })
 	end,
 })
 
@@ -98,5 +101,22 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 vim.api.nvim_create_autocmd("InsertLeave", {
 	callback = function()
 		vim.diagnostic.show()
+	end,
+})
+
+-- Show/hide tmux status bar
+vim.api.nvim_create_autocmd({ "VimEnter", "VimResume" }, {
+	callback = function()
+		if vim.env.TMUX ~= nil then
+			vim.system({ "tmux", "set", "status", "off" })
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
+	callback = function()
+		if vim.env.TMUX ~= nil then
+			vim.system({ "tmux", "set", "status", "on" })
+		end
 	end,
 })

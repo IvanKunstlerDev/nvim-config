@@ -10,7 +10,9 @@ opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes:1"
 opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%s"
-opt.numberwidth = 3
+opt.numberwidth = 5
+
+opt.laststatus = 0
 
 opt.mouse = "a"
 opt.showmode = false

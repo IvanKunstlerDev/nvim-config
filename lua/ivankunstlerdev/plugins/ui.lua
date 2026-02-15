@@ -78,11 +78,14 @@ return {
 
 	{
 		"akinsho/bufferline.nvim",
+		enabled = false,
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		opts = {
 			options = {
 				indicator = { style = "none" },
+				show_close_icon = false,
+				show_buffer_close_icons = false,
 				diagnostics = "nvim_lsp",
 				diagnostics_update_on_event = true,
 				offsets = {
@@ -90,6 +93,32 @@ return {
 						filetype = "NvimTree",
 						separator = true,
 						text = "File Explorer",
+					},
+				},
+			},
+			highlights = {
+				fill = {
+					bg = {
+						attribute = "bg",
+						highlight = "Normal",
+					},
+				},
+				background = {
+					bg = {
+						attribute = "bg",
+						highlight = "Normal",
+					},
+				},
+				tab_separator = {
+					bg = {
+						attribute = "bg",
+						highlight = "Normal",
+					},
+				},
+				buffer_visible = {
+					bg = {
+						attribute = "bg",
+						highlight = "Normal",
 					},
 				},
 			},
