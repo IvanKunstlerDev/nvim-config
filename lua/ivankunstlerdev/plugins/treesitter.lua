@@ -21,6 +21,8 @@ return {
 				"json",
 				"typescript",
 				"javascript",
+				"jsdoc",
+				"tsx",
 				"bash",
 				"regex",
 			},
