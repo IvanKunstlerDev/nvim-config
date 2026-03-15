@@ -66,28 +66,39 @@ vim.api.nvim_create_autocmd("VimLeave", {
 
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
-		local hl = vim.api.nvim_set_hl
 		local nf = vim.api.nvim_get_hl(0, { name = "NormalFloat", link = false })
+		local hl = vim.api.nvim_set_hl
+
+		local link_to_normal_float = function(highlight)
+			hl(0, highlight, { link = "NormalFloat" })
+		end
+
+		local link_to_inverse_normal_float = function(highlight)
+			hl(0, highlight, { bg = nf.bg, fg = nf.bg })
+		end
 
 		-- Telescope
-		hl(0, "TelescopeNormal", { link = "NormalFloat" })
-		hl(0, "TelescopePromptNormal", { link = "NormalFloat" })
-		hl(0, "TelescopeResultsNormal", { link = "NormalFloat" })
-		hl(0, "TelescopePreviewNormal", { link = "NormalFloat" })
-		hl(0, "TelescopeBorder", { bg = nf.bg, fg = nf.bg })
-		hl(0, "TelescopePromptBorder", { bg = nf.bg, fg = nf.bg })
-		hl(0, "TelescopeResultsBorder", { bg = nf.bg, fg = nf.bg })
-		hl(0, "TelescopePreviewBorder", { bg = nf.bg, fg = nf.bg })
+		link_to_normal_float("TelescopeNormal")
+		link_to_normal_float("TelescopePromptNormal")
+		link_to_normal_float("TelescopeResultsNormal")
+		link_to_normal_float("TelescopePreviewNormal")
+		link_to_inverse_normal_float("TelescopeBorder")
+		link_to_inverse_normal_float("TelescopePromptBorder")
+		link_to_inverse_normal_float("TelescopeResultsBorder")
+		link_to_inverse_normal_float("TelescopePreviewBorder")
 
 		-- Blink
-		hl(0, "BlinkCmpMenuBorder", { bg = nf.bg, fg = nf.bg })
+		link_to_inverse_normal_float("BlinkCmpMenuBorder")
+		link_to_normal_float("BlinkCmpMenu")
+		link_to_normal_float("BlinkCmpSource")
 
 		-- Noice
-		hl(0, "NoiceCmdlinePopup", { link = "NormalFloat" })
-		hl(0, "NoiceCmdlinePopupBorder", { bg = nf.bg, fg = nf.bg })
+		link_to_normal_float("NoiceCmdlineIcon")
+		link_to_normal_float("NoiceCmdlinePopup")
+		link_to_inverse_normal_float("NoiceCmdlinePopupBorder")
 
 		-- Match brackets
-		vim.api.nvim_set_hl(0, "MatchParen", { underline = false, bold = true, fg = "None", bg = "None" })
+		vim.api.nvim_set_hl(0, "MatchParen", { underline = true, bold = false, fg = "None", bg = "None" })
 	end,
 })
 

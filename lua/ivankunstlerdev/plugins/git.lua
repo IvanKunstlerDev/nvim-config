@@ -3,7 +3,12 @@ return {
 		"lewis6991/gitsigns.nvim",
 		event = "BufEnter",
 		config = true,
-		opts = {},
+		opts = {
+			word_diff = false,
+			numhl = false,
+			linehl = false,
+			signcolumn = true,
+		},
 	},
 	{
 		"kdheepak/lazygit.nvim",
