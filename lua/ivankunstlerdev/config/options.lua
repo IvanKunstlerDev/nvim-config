@@ -36,6 +36,7 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.shiftround = true
 opt.smartindent = true
+opt.autoindent = true
 opt.smoothscroll = true
 opt.wrap = true
 opt.termguicolors = true
