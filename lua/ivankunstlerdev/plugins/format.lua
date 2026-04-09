@@ -24,6 +24,7 @@ return {
 			typescript = { "biome", "prettier", stop_after_first = true },
 			javascriptreact = { "biome", "prettier", stop_after_first = true },
 			typescriptreact = { "biome", "prettier", stop_after_first = true },
+			json = { "biome", "prettier", "jsonls", stop_after_first = true },
 		},
 		format_on_save = {
 			timeout_ms = 5000,
