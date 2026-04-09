@@ -17,6 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
 	spec = {
 		import = "ivankunstlerdev.plugins",
 	},
