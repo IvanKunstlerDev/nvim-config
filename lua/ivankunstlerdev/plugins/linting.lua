@@ -29,14 +29,8 @@ return {
 			pattern = "*:n",
 			group = lint_augroup,
 			callback = function()
-				lint.try_lint()
+				lint.try_lint(nil, { ignore_errors = true })
 			end,
 		})
-		--vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-		--	group = lint_augroup,
-		--	callback = function()
-		--		lint.try_lint()
-		--	end,
-		--})
 	end,
 }

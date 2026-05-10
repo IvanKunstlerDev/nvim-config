@@ -25,6 +25,8 @@ return {
 				"tsx",
 				"bash",
 				"regex",
+				"html",
+				"css",
 			},
 		},
 	},

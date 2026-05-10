@@ -15,13 +15,9 @@ return {
 	cmd = "Telescope",
 	keys = {
 		{ "<leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Telescope find files" } },
-		{ "<leader>fg", "<CMD>Telescope live_grep<CR>", { desc = "Telescope live grep" } },
-		{ "<leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Telescope buffers" } },
-		{ "<leader>fh", "<CMD>Telescope help_tags<CR>", { desc = "Telescope help tags" } },
-		{ "gd", "<CMD>Telescope lsp_definitions<CR>", { desc = "LSP definitions (Telescope)" } },
-		{ "gr", "<CMD>Telescope lsp_references<CR>", { desc = "LSP references (Telescope)" } },
-		{ "gi", "<CMD>Telescope lsp_implementations<CR>", { desc = "LSP implementations (Telescope)" } },
-		{ "gy", "<CMD>Telescope lsp_type_definitions<CR>", { desc = "LSP type definitions (Telescope)" } },
+		{ "<leader>fg", "<CMD>Telescope live_grep<CR>",  { desc = "Telescope live grep" } },
+		{ "<leader>fb", "<CMD>Telescope buffers<CR>",    { desc = "Telescope buffers" } },
+		{ "<leader>fh", "<CMD>Telescope help_tags<CR>",  { desc = "Telescope help tags" } },
 	},
 	opts = {
 		defaults = {
