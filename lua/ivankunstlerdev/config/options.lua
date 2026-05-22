@@ -6,6 +6,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+opt.exrc = true -- Para tener configuraciones por proyecto mediante .nvim.lua
+
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes:1"

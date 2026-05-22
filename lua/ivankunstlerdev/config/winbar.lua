@@ -39,8 +39,9 @@ local get_filename_hl = function(diagnostic_level)
 		local new_hl = base_hl .. "Italic"
 		if vim.fn.hlexists(new_hl) == 0 then
 			local hl_def = vim.api.nvim_get_hl(0, { name = base_hl })
+			local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
 			vim.api.nvim_set_hl(0, new_hl, {
-				bg = hl_def.bg,
+				bg = normal_hl.bg,
 				fg = hl_def.fg,
 				italic = true,
 			})
@@ -69,6 +70,14 @@ local get_winbar = function(opts)
 
 	return padding .. "%#" .. icon_hl .. "#" .. icon .. " %#" .. file_hl .. "#" .. filename .. "%*"
 end
+
+vim.api.nvim_set_hl(0, "WinBar", {
+	link = "Normal",
+})
+
+vim.api.nvim_set_hl(0, "WinBarNC", {
+	link = "Normal",
+})
 
 vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter", "BufModifiedSet", "WinEnter", "WinLeave", "DiagnosticChanged" }, {
 	callback = function(args)
