@@ -17,7 +17,7 @@ return {
 	},
 	{
 		"rebelot/kanagawa.nvim",
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		opts = {
 			undercurl = true,
@@ -25,7 +25,7 @@ return {
 			keywordStyle = { italic = false },
 			statementStyle = { bold = false },
 			typeStyle = { bold = false },
-			transparent = true,
+			transparent = false,
 			terminalColors = true,
 			overrides = function(colors)
 				return {
@@ -105,9 +105,9 @@ return {
 		},
 		config = function(_, opts)
 			require("gruvbox").setup(opts)
-			vim.o.background = "light"
+			--vim.o.background = "light"
 
-			vim.cmd.colorscheme("gruvbox")
+			--vim.cmd.colorscheme("gruvbox")
 			local highlights = {
 				"SignColumn", -- Columna de signos (Git, LSP)
 				"LineNr", -- Números de línea
@@ -124,6 +124,15 @@ return {
 			end
 
 			vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "PmenuSel" })
+		end,
+	},
+	{
+		"rose-pine/neovim",
+		enabled = false,
+		name = "rose-pine",
+		config = function()
+			vim.o.background = "light"
+			vim.cmd.colorscheme("rose-pine-dawn")
 		end,
 	},
 }

@@ -81,6 +81,10 @@ vim.api.nvim_set_hl(0, "WinBarNC", {
 
 vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter", "BufModifiedSet", "WinEnter", "WinLeave", "DiagnosticChanged" }, {
 	callback = function(args)
+		if vim.bo.buftype == "terminal" then
+			vim.api.nvim_set_option_value("winbar", "", { scope = "local" })
+			return
+		end
 		local bar = get_winbar({ diagnostics = args.data })
 		vim.api.nvim_set_option_value("winbar", bar, { scope = "local" })
 	end,
