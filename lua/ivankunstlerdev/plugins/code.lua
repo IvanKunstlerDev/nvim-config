@@ -6,6 +6,7 @@ return {
 		---@module "ibl"
 		---@type ibl.config
 		opts = {
+			enabled = false,
 			indent = {
 				char = "▏",
 				smart_indent_cap = true,
