@@ -71,12 +71,18 @@ local get_winbar = function(opts)
 	return padding .. "%#" .. icon_hl .. "#" .. icon .. " %#" .. file_hl .. "#" .. filename .. "%*"
 end
 
-vim.api.nvim_set_hl(0, "WinBar", {
-	link = "Normal",
-})
+local function set_winbar_hl()
+	vim.api.nvim_set_hl(0, "WinBar", {
+		link = "Normal",
+	})
+	vim.api.nvim_set_hl(0, "WinBarNC", {
+		link = "Normal",
+	})
+end
 
-vim.api.nvim_set_hl(0, "WinBarNC", {
-	link = "Normal",
+set_winbar_hl()
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = set_winbar_hl,
 })
 
 vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter", "BufModifiedSet", "WinEnter", "WinLeave", "DiagnosticChanged" }, {
