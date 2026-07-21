@@ -9,6 +9,20 @@ return {
 				transparent = false,
 			})
 			vim.cmd.colorscheme("paradise")
+
+			local set_italic_hl = function(hl_name, value)
+				local prev_hl = vim.api.nvim_get_hl(0, { name = hl_name })
+				vim.api.nvim_set_hl(0, hl_name, vim.tbl_extend("force", prev_hl, { italic = value }))
+			end
+			set_italic_hl("@keyword", true)
+			set_italic_hl("@keyword.import", true)
+			set_italic_hl("@keyword.conditional", true)
+			set_italic_hl("@keyword.return", true)
+			set_italic_hl("@lsp.type.function", true)
+			set_italic_hl("@variable", false)
+			set_italic_hl("@lsp.type.variable", false)
+			set_italic_hl("@lsp.mod.readonly", false)
+			set_italic_hl("@lsp.typemod.variable.readonly", false)
 		end,
 	},
 	{
