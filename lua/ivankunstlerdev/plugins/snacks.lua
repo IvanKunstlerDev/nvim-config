@@ -23,6 +23,7 @@ return {
 			enabled = true,
 			sources = {
 				explorer = {
+					jump = { close = true },
 					layout = {
 						preset = "sidebar",
 						layout = {
