@@ -9,7 +9,7 @@ return {
 			highlight = { enable = true },
 			incremental_selection = { enable = true },
 			textobjects = { enable = true },
-			indent = { enable = false },
+			indent = { enable = true },
 			ensure_installed = {
 				"c",
 				"lua",
@@ -26,6 +26,7 @@ return {
 				"bash",
 				"regex",
 				"css",
+				"python",
 			},
 		},
 	},
