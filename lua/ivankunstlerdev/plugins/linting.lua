@@ -8,18 +8,22 @@ return {
 			javascript = {
 				"eslint_d",
 				"biomejs",
+				"oxlint",
 			},
 			typescript = {
 				"eslint_d",
 				"biomejs",
+				"oxlint",
 			},
 			javascriptreact = {
 				"eslint_d",
 				"biomejs",
+				"oxlint",
 			},
 			typescriptreact = {
 				"eslint_d",
 				"biomejs",
+				"oxlint",
 			},
 		}
 

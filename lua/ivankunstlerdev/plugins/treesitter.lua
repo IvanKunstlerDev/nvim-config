@@ -1,15 +1,13 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
 		lazy = false,
 		build = ":TSUpdate",
-		main = "nvim-treesitter.configs",
 		opts = {
 			highlight = { enable = true },
 			incremental_selection = { enable = true },
 			textobjects = { enable = true },
-			indent = { enable = true },
+			indent = { enable = false },
 			ensure_installed = {
 				"c",
 				"lua",

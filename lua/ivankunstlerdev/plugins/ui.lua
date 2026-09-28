@@ -1,5 +1,10 @@
 return {
 	{
+		"nvim-tree/nvim-web-devicons",
+		config = true,
+	},
+
+	{
 		"rcarriga/nvim-notify",
 		opts = {
 			render = "default",
@@ -75,7 +80,7 @@ return {
 
 	{
 		"karb94/neoscroll.nvim",
-		enabled = false,
+		enabled = true,
 		opts = {},
 	},
 

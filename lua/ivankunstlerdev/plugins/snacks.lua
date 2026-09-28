@@ -18,23 +18,33 @@ return {
 			enabled = true,
 			trash = true,
 			replace_netrw = true,
+			hidden = true,
+			win = {
+				padding = {
+					left = 1,
+					right = 1,
+				},
+			},
 		},
 		picker = {
 			enabled = true,
+			files = {
+				hideen = true,
+			},
 			sources = {
 				explorer = {
-					jump = { close = true },
+					jump = { close = false }, -- Cerrar al seleccionar un archivo
 					layout = {
 						preset = "sidebar",
 						layout = {
-							position = "left",
+							position = "right",
 						},
 					},
 					icons = {
 						tree = {
-							vertical = "  ",
-							middle = "  ",
-							last = "  ",
+							vertical = " ",
+							middle = " ",
+							last = " ",
 						},
 					},
 				},
@@ -50,4 +60,15 @@ return {
 			desc = "File Explorer",
 		},
 	},
+	config = function(_, opts)
+		require("snacks").setup(opts)
+
+		vim.api.nvim_create_autocmd("VimEnter", {
+			callback = function()
+				if vim.fn.argc() == 0 then
+					require("snacks").explorer()
+				end
+			end,
+		})
+	end,
 }
