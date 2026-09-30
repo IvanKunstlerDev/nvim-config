@@ -1,45 +1,18 @@
-local opt = vim.o
+local opt = vim.opt
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-opt.number = true
-opt.relativenumber = true
-opt.signcolumn = "yes:1"
-opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%s"
-opt.numberwidth = 5
-
-opt.laststatus = 0
-
-opt.mouse = "a"
-opt.showmode = false
-
-vim.schedule(function()
-	opt.clipboard = "unnamedplus"
+-- Clipboard
+vim.schedule(function ()
+  opt.clipboard = 'unnamedplus'
 end)
 
-opt.undofile = true
-opt.ignorecase = true
-opt.smartcase = true
-opt.updatetime = 250
-opt.timeoutlen = 300
-opt.inccommand = "split"
-opt.cursorline = true
-opt.scrolloff = 8
-opt.confirm = true
-opt.linebreak = true
-opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.shiftround = true
-opt.smartindent = true
-opt.smoothscroll = true
-opt.wrap = true
+-- UI
 opt.termguicolors = true
-
+opt.number = true
+opt.relativenumber = true
+opt.numberwidth = 5
+opt.showtabline = 0
+opt.laststatus = 3
+opt.cmdheight = 0
 vim.opt.fillchars = {
 	foldopen = "",
 	foldclose = "",
@@ -48,7 +21,49 @@ vim.opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
-opt.foldlevel = 99
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.foldtext = ""
+
+-- Signs
+opt.signcolumn = "yes:1"
+opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%s"
+
+-- Indent
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.expandtab = true
+opt.autoindent = true
+
+-- Search
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.incsearch = true
+
+-- Text
+opt.wrap = true
+opt.linebreak = true
+opt.breakindent = true
+opt.textwidth = 0
+opt.colorcolumn = ""
+opt.spell = false
+
+-- Movement
+opt.cursorline = true
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+
+-- Split
+opt.splitbelow = true
+opt.splitright = true
+
+-- File
+opt.undofile = true
+opt.updatetime = 250
+
+-- Completion and cmd
+opt.completeopt = { "menu", "menuone", "noselect" }
+opt.wildmenu = true
+opt.wildmode = "longest:full,full"
+opt.showcmd = true
+opt.showmode = false
+

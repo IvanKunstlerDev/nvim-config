@@ -1,5 +1,7 @@
 require("ivankunstlerdev.config.options")
-require("ivankunstlerdev.config.winbar")
 require("ivankunstlerdev.config.keymaps")
+require("ivankunstlerdev.pack")
+require("ivankunstlerdev.plugins")
 require("ivankunstlerdev.config.autocmds")
-require("ivankunstlerdev.config.diagnostic")
+require("ivankunstlerdev.config.diagnostics")
+

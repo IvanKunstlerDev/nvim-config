@@ -1,0 +1,21 @@
+vim.lsp.enable("lua_ls")
+
+local map = function(modes, keymap, fn, desc)
+	vim.keymap.set(modes, keymap, fn, { desc = desc, noremap = true })
+end
+
+map("n", "K", function()
+	vim.lsp.buf.hover()
+end, "Hover")
+map("n", "gK", function()
+	vim.lsp.buf.signature_help()
+end, "Signature Help")
+map("i", "<c-k>", function()
+	vim.lsp.buf.signature_help()
+end, "Signature Help")
+map("n", "<leader>cr", function()
+	vim.lsp.buf.rename()
+end, "Rename")
+map("n", "<leader>ca", function()
+	vim.lsp.buf.code_action()
+end, "Code Actions")

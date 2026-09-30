@@ -1,0 +1,7 @@
+require("ivankunstlerdev.plugins.vague")
+require("ivankunstlerdev.plugins.snacks")
+require("ivankunstlerdev.plugins.lazydev")
+require("ivankunstlerdev.plugins.blink")
+require("ivankunstlerdev.plugins.mini-pairs")
+require("ivankunstlerdev.plugins.lspconfig")
+require("ivankunstlerdev.plugins.treesitter")
