@@ -19,26 +19,22 @@ return {
 			trash = true,
 			replace_netrw = true,
 			hidden = true,
-			win = {
-				padding = {
-					left = 1,
-					right = 1,
-				},
-			},
 		},
 		picker = {
 			enabled = true,
 			files = {
-				hideen = true,
+				hidden = true,
 			},
 			sources = {
 				explorer = {
-					jump = { close = false }, -- Cerrar al seleccionar un archivo
+					jump = { close = false },
 					layout = {
+						auto_hide = { "input" },
 						preset = "sidebar",
 						layout = {
-							position = "right",
-						},
+							position = "left",
+							border = "none"
+						}
 					},
 					icons = {
 						tree = {
@@ -46,6 +42,10 @@ return {
 							middle = " ",
 							last = " ",
 						},
+						files = {
+							dir = "󱞫",
+							dir_open = "󱞩"
+						}
 					},
 				},
 			},
@@ -70,5 +70,16 @@ return {
 				end
 			end,
 		})
+
+		local link_normal = function(hlname)
+			vim.api.nvim_set_hl(0, hlname, { link = "Normal" })
+		end
+		vim.schedule(function()
+			link_normal("SnacksPicker")
+			link_normal("SnacksPickerList")
+			link_normal("SnacksPickerBorder")
+			link_normal("SnacksPickerTitle")
+			vim.api.nvim_set_hl(0, "SnacksPickerDirectory", { link = "NonText" })
+		end)
 	end,
 }

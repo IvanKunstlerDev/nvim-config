@@ -7,7 +7,9 @@ return {
 			transparent = false, -- If true, background is not set
 			bold = true, -- Disable bold globally
 			italic = true, -- Disable italic globally
-			on_highlights = function(hl, colors) end,
+			on_highlights = function(hl, colors)
+				hl.String = vim.tbl_extend("force", hl.String, { italic = false })
+			end,
 			colors = {
 				bg = "#141415",
 				inactiveBg = "#1c1c24",

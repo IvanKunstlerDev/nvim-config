@@ -8,7 +8,7 @@ return {
 	opts = {
 		keymap = {
 			preset = "enter",
-			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+			["<C-@>"] = { "show", "show_documentation", "hide_documentation" },
 			["<C-e>"] = { "cancel", "fallback" },
 			["<CR>"] = { "accept", "fallback" },
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
