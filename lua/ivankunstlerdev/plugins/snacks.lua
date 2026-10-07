@@ -9,7 +9,7 @@ require("snacks").setup({
 			},
 		},
 	},
-	explorer = { enabled = true },
+	explorer = { enabled = false },
 })
 
 local snacks = require("snacks")
@@ -19,9 +19,6 @@ local map = function(keymap, fn, desc)
 	vim.keymap.set("n", keymap, fn, { desc = desc, noremap = true })
 end
 
-map("<leader>e", function()
-	snacks.explorer()
-end, "Explorador de archivos")
 map("<leader>ff", function()
 	picker.files()
 end, "Buscar archivos")
@@ -41,13 +38,3 @@ map("<leader>gx", function()
 	picker.diagnostics()
 end, "Buscar diagnosticos")
 
-local group = vim.api.nvim_create_augroup("snacks_explorer", { clear = true })
-
-vim.api.nvim_create_autocmd("VimEnter", {
-	group = group,
-	callback = function()
-		if vim.fn.argc() == 0 then
-			snacks.explorer()
-		end
-	end,
-})

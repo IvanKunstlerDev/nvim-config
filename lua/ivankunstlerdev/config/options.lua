@@ -48,7 +48,7 @@ opt.colorcolumn = ""
 opt.spell = false
 
 -- Movement
-opt.cursorline = true
+opt.cursorline = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 

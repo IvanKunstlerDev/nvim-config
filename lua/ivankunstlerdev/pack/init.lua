@@ -21,5 +21,6 @@ vim.pack.add({
 	{ src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
 	gh("nvim-tree/nvim-web-devicons"),
 	gh("folke/snacks.nvim"),
+  gh("nvim-tree/nvim-tree.lua"),
 	gh("vague-theme/vague.nvim"),
 })
