@@ -1,5 +1,5 @@
 require("ivankunstlerdev.plugins.vague")
-require("ivankunstlerdev.plugins.snacks")
+require("ivankunstlerdev.plugins.fzf")
 require("ivankunstlerdev.plugins.lazydev")
 require("ivankunstlerdev.plugins.blink")
 require("ivankunstlerdev.plugins.mini-pairs")
