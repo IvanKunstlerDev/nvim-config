@@ -23,4 +23,5 @@ vim.pack.add({
   gh("ibhagwan/fzf-lua"),
   gh("nvim-tree/nvim-tree.lua"),
 	gh("vague-theme/vague.nvim"),
+  gh("stevearc/conform.nvim")
 })
