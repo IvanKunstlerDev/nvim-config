@@ -1,7 +1,7 @@
 require("vague").setup({
-transparent = false, -- If true, background is not set
-  bold = true, -- Disable bold globally
-  italic = true, -- Disable italic globally
+  transparent = false, -- If true, background is not set
+  bold = true,         -- Disable bold globally
+  italic = true,       -- Disable italic globally
   on_highlights = function(hl, colors)
     hl.String.italic = false
   end,
@@ -34,5 +34,5 @@ transparent = false, -- If true, background is not set
 
 vim.cmd.colorscheme("vague")
 
-local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = normal_hl.bg })
+vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+vim.api.nvim_set_hl(0, "PMenu", { link = "Normal" })
