@@ -19,16 +19,41 @@ require("nvim-tree").setup({
         git = false,
         modified = false,
       },
-      glyphs = {
-        folder = {
-          default = "󱞫",
-          empty = "󱞫",
-          open = "󱞩",
-          empty_open = "󱞩",
-        }
-      }
     }
-  }
+  },
+  on_attach = function(bufnr)
+    local api = require("nvim-tree.api")
+
+    local function opts(desc)
+      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    local function edit_or_open()
+      local node = api.tree.get_node_under_cursor()
+      if node.nodes ~= nil then
+        api.node.open.edit()
+      else
+        api.node.open.edit()
+        api.tree.close()
+      end
+    end
+
+    local function vsplit_preview()
+      local node = api.tree.get_node_under_cursor()
+      if node.nodes ~= nil then
+        api.node.open.edit()
+      else
+        api.node.open.vertical()
+      end
+      api.tree.focus()
+    end
+
+    api.map.on_attach.default(bufnr)
+    vim.keymap.set("n", "l", edit_or_open,          opts("Edit Or Open"))
+    vim.keymap.set("n", "L", vsplit_preview,        opts("Vsplit Preview"))
+    vim.keymap.set("n", "h", api.node.collapse,        opts("Close"))
+    vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
+  end
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -47,3 +72,4 @@ vim.schedule(function ()
 end)
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File explorer" })
+vim.keymap.set("n", "<leader><S-e>", "<cmd>NvimTreeFindFile<cr>", { desc = "Open in file explorer" })
