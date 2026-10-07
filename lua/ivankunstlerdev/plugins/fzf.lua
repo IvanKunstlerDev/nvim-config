@@ -6,7 +6,9 @@ fzf.setup({
   }
 })
 
-local kmap = function (keymap, fn, desc, modes)
+fzf.register_ui_select()
+
+local kmap = function(keymap, fn, desc, modes)
   modes = modes or "n"
   vim.keymap.set(modes, keymap, fn, { desc = desc })
 end
