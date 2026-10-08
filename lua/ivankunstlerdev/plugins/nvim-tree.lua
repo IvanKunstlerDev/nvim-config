@@ -57,6 +57,10 @@ vim.schedule(function()
   vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {
     link = "Comment"
   })
+
+  if vim.fn.argc() == 0 then
+    vim.cmd("NvimTreeOpen")
+  end
 end)
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File explorer" })
