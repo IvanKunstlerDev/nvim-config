@@ -28,16 +28,6 @@ require("nvim-tree").setup({
       return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
-    local function edit_or_open()
-      local node = api.tree.get_node_under_cursor()
-      if node.nodes ~= nil then
-        api.node.open.edit()
-      else
-        api.node.open.edit()
-        api.tree.close()
-      end
-    end
-
     local function vsplit_preview()
       local node = api.tree.get_node_under_cursor()
       if node.nodes ~= nil then
@@ -49,7 +39,7 @@ require("nvim-tree").setup({
     end
 
     api.map.on_attach.default(bufnr)
-    vim.keymap.set("n", "l", edit_or_open, opts("Edit Or Open"))
+    vim.keymap.set("n", "l", api.node.open.edit, opts("Edit Or Open"))
     vim.keymap.set("n", "L", vsplit_preview, opts("Vsplit Preview"))
     vim.keymap.set("n", "h", api.node.collapse, opts("Close"))
     vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
