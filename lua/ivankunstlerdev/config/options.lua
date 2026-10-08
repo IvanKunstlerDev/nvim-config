@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- Clipboard
-vim.schedule(function ()
+vim.schedule(function()
   opt.clipboard = 'unnamedplus'
 end)
 
@@ -11,15 +11,15 @@ opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 5
 opt.showtabline = 0
-opt.laststatus = 3
+opt.laststatus = 0
 opt.cmdheight = 0
 vim.opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
 }
 
 -- Signs
@@ -66,4 +66,3 @@ opt.wildmenu = true
 opt.wildmode = "longest:full,full"
 opt.showcmd = true
 opt.showmode = false
-
