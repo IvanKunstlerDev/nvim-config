@@ -25,5 +25,6 @@ vim.pack.add({
   gh("vague-theme/vague.nvim"),
   gh("stevearc/conform.nvim"),
   gh("mfussenegger/nvim-lint"),
-  gh("nvim-mini/mini.move")
+  gh("nvim-mini/mini.move"),
+  gh("lewis6991/gitsigns.nvim")
 })
