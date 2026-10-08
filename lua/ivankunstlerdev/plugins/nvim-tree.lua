@@ -49,9 +49,9 @@ require("nvim-tree").setup({
     end
 
     api.map.on_attach.default(bufnr)
-    vim.keymap.set("n", "l", edit_or_open,          opts("Edit Or Open"))
-    vim.keymap.set("n", "L", vsplit_preview,        opts("Vsplit Preview"))
-    vim.keymap.set("n", "h", api.node.collapse,        opts("Close"))
+    vim.keymap.set("n", "l", edit_or_open, opts("Edit Or Open"))
+    vim.keymap.set("n", "L", vsplit_preview, opts("Vsplit Preview"))
+    vim.keymap.set("n", "h", api.node.collapse, opts("Close"))
     vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
   end
 })
@@ -63,11 +63,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
-local normalhl = vim.api.nvim_get_hl(0, { name = "Normal" })
-vim.schedule(function ()
+vim.schedule(function()
   vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {
-    bg = normalhl.bg,
-    fg = normalhl.bg
+    link = "Comment"
   })
 end)
 
