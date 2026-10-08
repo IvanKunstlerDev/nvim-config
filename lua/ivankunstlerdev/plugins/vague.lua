@@ -4,6 +4,7 @@ require("vague").setup({
   italic = true,       -- Disable italic globally
   on_highlights = function(hl, colors)
     hl.String.italic = false
+    hl.Boolean.bold = false
   end,
   colors = {
     bg = '#141415',
@@ -34,5 +35,6 @@ require("vague").setup({
 
 vim.cmd.colorscheme("vague")
 
-vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+vim.api.nvim_set_hl(0, "FloatBorder", { link = "DiagnosticSignInfo" })
 vim.api.nvim_set_hl(0, "PMenu", { link = "Normal" })
+vim.api.nvim_set_hl(0, "PMenuBorder", { link = "DiagnosticSignInfo" })
