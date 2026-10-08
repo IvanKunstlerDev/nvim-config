@@ -26,5 +26,9 @@ vim.pack.add({
   gh("stevearc/conform.nvim"),
   gh("mfussenegger/nvim-lint"),
   gh("nvim-mini/mini.move"),
-  gh("lewis6991/gitsigns.nvim")
+  gh("lewis6991/gitsigns.nvim"),
+
+  gh("MunifTanjim/nui.nvim"),
+  gh("rcarriga/nvim-notify"),
+  gh("folke/noice.nvim")
 })
