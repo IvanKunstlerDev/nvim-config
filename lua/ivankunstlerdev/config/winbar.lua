@@ -38,12 +38,15 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = set_hl,
 })
 
-vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter", "BufModifiedSet", "WinEnter", "WinLeave", "DiagnosticChanged" }, {
-  callback = function()
-    if vim.bo.buftype == "terminal" or vim.bo.buftype == "nofile" then
-      vim.api.nvim_set_option_value("winbar", "", { scope = "local" })
-      return
-    end
-    vim.api.nvim_set_option_value("winbar", winbar(), { scope = "local" })
-  end,
-})
+vim.api.nvim_create_autocmd(
+  { "VimEnter", "BufEnter", "BufModifiedSet", "WinEnter", "WinLeave", "DiagnosticChanged" },
+  {
+    callback = function()
+      if vim.bo.buftype == "terminal" or vim.bo.buftype == "nofile" then
+        vim.api.nvim_set_option_value("winbar", "", { scope = "local" })
+        return
+      end
+      vim.api.nvim_set_option_value("winbar", winbar(), { scope = "local" })
+    end,
+  }
+)

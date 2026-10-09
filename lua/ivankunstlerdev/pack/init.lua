@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
-  { src = gh("Saghen/blink.cmp"),     version = "v1" },
+  { src = gh("Saghen/blink.cmp"), version = "v1" },
   gh("folke/lazydev.nvim"),
   { src = gh("nvim-mini/mini.pairs"), version = "stable" },
   gh("neovim/nvim-lspconfig"),
@@ -32,5 +32,5 @@ vim.pack.add({
   gh("rcarriga/nvim-notify"),
   gh("folke/noice.nvim"),
 
-  gh("numToStr/Comment.nvim")
+  gh("numToStr/Comment.nvim"),
 })

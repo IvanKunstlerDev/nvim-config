@@ -1,5 +1,5 @@
 require("lazydev").setup({
-	library = {
-		{ path = "snacks.nvim", words = { "Snacks" } },
-	},
+  library = {
+    { path = "snacks.nvim", words = { "Snacks" } },
+  },
 })

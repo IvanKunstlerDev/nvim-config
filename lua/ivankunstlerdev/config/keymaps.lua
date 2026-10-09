@@ -5,10 +5,10 @@ vim.opt.timeoutlen = 200
 local kmap = vim.keymap.set
 kmap("n", "<Esc>", "<CMD>nohlsearch<CR>")
 
-kmap('n', '<C-h>', '<C-w>h')
-kmap('n', '<C-j>', '<C-w>j')
-kmap('n', '<C-k>', '<C-w>k')
-kmap('n', '<C-l>', '<C-w>l')
+kmap("n", "<C-h>", "<C-w>h")
+kmap("n", "<C-j>", "<C-w>j")
+kmap("n", "<C-k>", "<C-w>k")
+kmap("n", "<C-l>", "<C-w>l")
 
 kmap("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Next buffer" })
 kmap("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Prev buffer" })

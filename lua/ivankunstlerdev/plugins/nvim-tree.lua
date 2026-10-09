@@ -19,13 +19,19 @@ require("nvim-tree").setup({
         git = false,
         modified = false,
       },
-    }
+    },
   },
   on_attach = function(bufnr)
     local api = require("nvim-tree.api")
 
     local function opts(desc)
-      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      return {
+        desc = "nvim-tree: " .. desc,
+        buffer = bufnr,
+        noremap = true,
+        silent = true,
+        nowait = true,
+      }
     end
 
     local function vsplit_preview()
@@ -43,7 +49,7 @@ require("nvim-tree").setup({
     vim.keymap.set("n", "L", vsplit_preview, opts("Vsplit Preview"))
     vim.keymap.set("n", "h", api.node.collapse, opts("Close"))
     vim.keymap.set("n", "H", api.tree.collapse_all, opts("Collapse All"))
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -55,7 +61,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 vim.schedule(function()
   vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {
-    link = "Comment"
+    link = "Comment",
   })
 
   if vim.fn.argc() == 0 then
@@ -64,4 +70,9 @@ vim.schedule(function()
 end)
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "File explorer" })
-vim.keymap.set("n", "<leader><S-e>", "<cmd>NvimTreeFindFile<cr>", { desc = "Open in file explorer" })
+vim.keymap.set(
+  "n",
+  "<leader><S-e>",
+  "<cmd>NvimTreeFindFile<cr>",
+  { desc = "Open in file explorer" }
+)

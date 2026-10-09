@@ -2,7 +2,7 @@ local opt = vim.opt
 
 -- Clipboard
 vim.schedule(function()
-  opt.clipboard = 'unnamedplus'
+  opt.clipboard = "unnamedplus"
 end)
 
 -- UI

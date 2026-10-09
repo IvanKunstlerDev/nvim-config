@@ -26,4 +26,6 @@ conform.setup({
   },
 })
 
-vim.keymap.set("n", "<leader>cf", function() conform.format({ async = true }) end, { desc = "Format code" })
+vim.keymap.set("n", "<leader>cf", function()
+  conform.format({ async = true })
+end, { desc = "Format code" })

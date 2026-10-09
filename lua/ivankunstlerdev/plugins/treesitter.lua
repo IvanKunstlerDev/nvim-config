@@ -1,6 +1,19 @@
 local treesitter = require("nvim-treesitter")
 treesitter.setup()
-treesitter.install({ "lua", "json", "markdown", "css", "html", "javascript", "typescript", "jsx", "tsx", "yaml", "bash", "sql" })
+treesitter.install({
+  "lua",
+  "json",
+  "markdown",
+  "css",
+  "html",
+  "javascript",
+  "typescript",
+  "jsx",
+  "tsx",
+  "yaml",
+  "bash",
+  "sql",
+})
 
 vim.opt.foldlevel = 99
 vim.opt.foldmethod = "expr"

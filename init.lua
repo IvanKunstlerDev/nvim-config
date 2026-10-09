@@ -1,2 +1,1 @@
-require('ivankunstlerdev.config')
-
+require("ivankunstlerdev.config")
