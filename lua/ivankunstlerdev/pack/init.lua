@@ -30,5 +30,7 @@ vim.pack.add({
 
   gh("MunifTanjim/nui.nvim"),
   gh("rcarriga/nvim-notify"),
-  gh("folke/noice.nvim")
+  gh("folke/noice.nvim"),
+
+  gh("numToStr/Comment.nvim")
 })
