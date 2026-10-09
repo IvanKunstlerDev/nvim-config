@@ -13,12 +13,38 @@ kmap("n", "<C-l>", "<C-w>l")
 kmap("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Next buffer" })
 kmap("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Prev buffer" })
 kmap("n", "<leader>bd", function()
+  local current_buffer = vim.api.nvim_get_current_buf()
   local buffers = #vim.fn.getbufinfo({ buflisted = 1 })
-  if buffers > 1 then
-    vim.cmd("bp | bd #")
-  else
-    vim.cmd("enew | bd #")
+
+  local function close_buffer()
+    if buffers > 1 then
+      vim.cmd("bprevious")
+    else
+      vim.cmd("enew")
+    end
+    vim.api.nvim_buf_delete(current_buffer, { force = true })
   end
+
+  if not vim.bo[current_buffer].modified then
+    close_buffer()
+    return
+  end
+
+  vim.ui.input({
+    prompt = "Close buffer without saving? (y/N): ",
+  }, function(input)
+    local affirmative = {
+      y = true,
+      yes = true,
+      s = true,
+      si = true,
+      ["1"] = true,
+    }
+
+    if input and affirmative[input:lower()] then
+      close_buffer()
+    end
+  end)
 end, { desc = "Close current buffer" })
 
 kmap("", "<leader>fr", function()
