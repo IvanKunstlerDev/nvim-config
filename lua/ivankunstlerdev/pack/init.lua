@@ -34,4 +34,5 @@ vim.pack.add({
 
   gh("numToStr/Comment.nvim"),
   gh("windwp/nvim-ts-autotag"),
+  { src = gh("nickjvandyke/opencode.nvim"), version = vim.version.range("*") },
 })
