@@ -33,4 +33,5 @@ vim.pack.add({
   gh("folke/noice.nvim"),
 
   gh("numToStr/Comment.nvim"),
+  gh("windwp/nvim-ts-autotag"),
 })
