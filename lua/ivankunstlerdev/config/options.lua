@@ -59,6 +59,7 @@ opt.splitright = true
 -- File
 opt.undofile = true
 opt.updatetime = 500
+opt.timeoutlen = 300
 
 -- Completion and cmd
 opt.completeopt = { "menu", "menuone", "noselect" }
